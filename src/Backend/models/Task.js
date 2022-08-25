@@ -9,7 +9,7 @@ const JobSchema = new mongoose.Schema(
     },
     deadline: {
       type: String,
-      required: [true, "Please provide position"],
+      // required: [true, "Please provide deadline"],
       maxlength: 100,
     },
     status: {
