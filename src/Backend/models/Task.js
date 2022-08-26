@@ -9,13 +9,13 @@ const JobSchema = new mongoose.Schema(
     },
     deadline: {
       type: String,
-      required: [true, "Please provide position"],
+      // required: [true, "Please provide deadline"],
       maxlength: 100,
     },
     status: {
-      type: String,
+      type: Boolean,
       // enum: ["interview", "declined", "pending"],
-      default: "not done",
+      default: false,
     },
     createdBy: {
       type: mongoose.Types.ObjectId,
@@ -30,4 +30,4 @@ const JobSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Job", JobSchema);
+module.exports = mongoose.model("Task", JobSchema);
