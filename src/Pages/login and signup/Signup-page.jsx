@@ -26,7 +26,7 @@ const SignupPage = () => {
           dispatch({ type: "signupSuccess", payload: data.data });
         });
     } catch (err) {
-      alert(err.response.data.msg);
+      alert(err);
     }
   };
 
