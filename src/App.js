@@ -14,7 +14,6 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/tasks" element={<AddTask />} />
         <Route path="/crm" element={<Crm/>} />
-        {/* <Route path="/taskform" element={<Taskform/>} /> */}
         {/* <Route path="" element={} /> */}
       </Routes>
     </div>
