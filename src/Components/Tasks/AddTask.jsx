@@ -9,7 +9,6 @@ const AddTask = () => {
   const [taskData, setTaskData] = useState();
   const token = localStorage.getItem("token");
   const name = localStorage.getItem("name");
-  //   console.log( token);
 
   const handleAddTask = (e) => {
     const { name, value } = e.target;
