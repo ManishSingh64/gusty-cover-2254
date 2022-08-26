@@ -1,20 +1,28 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
+import { getUserData } from "./Actions";
 
 const AddTask = () => {
-  const { state } = useContext(AuthContext);
+  const { state, dispatch } = useContext(AuthContext);
   const [userData, setuserData] = useState([]);
-  //   console.log("name", name);
+  // setuserData(state.data);
+  // console.log("state", state.data);
   const [taskData, setTaskData] = useState();
   const token = localStorage.getItem("token");
   const name = localStorage.getItem("name");
 
   const handleAddTask = (e) => {
-    const { name, value } = e.target;
-    setTaskData({ ...taskData, [name]: value });
+    const { name, value, valueAsNumber } = e.target;
+    if (valueAsNumber) {
+      setTaskData({ ...taskData, deadline: valueAsNumber });
+    } else {
+      setTaskData({ ...taskData, [name]: value });
+    }
   };
+
   const handleSubmitTask = async () => {
+    console.log(taskData);
     try {
       await axios
         .post("http://localhost:8080/usertasks", taskData, {
@@ -22,23 +30,17 @@ const AddTask = () => {
             Authorization: `Bearer ${token}`,
           },
         })
-        .then((data) => {
-          alert("done");
-          //   dispatch({ type: "loginSuccess", payload: data.data });
+        .then(() => {
+          getUserData(dispatch, token);
+          // dispatch({ type: "loadUserData", payload: data.data.jobs });
         });
     } catch (err) {
-      alert(err.response.data.msg);
+      console.log(err);
     }
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/usertasks", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((data) => setuserData(data.data.jobs));
+    getUserData(dispatch, token);
   }, []);
 
   return (
@@ -48,14 +50,10 @@ const AddTask = () => {
       </div>
       <form action="" onSubmit={(e) => e.preventDefault()}>
         <input type="text" name="name" onChange={handleAddTask} />
+        <input type="date" onChange={handleAddTask} />
         <button onClick={() => handleSubmitTask()}>Add Task</button>
       </form>
-      <div>
-        <h2>Your Tasks are here</h2>
-        {userData.map((el, index) => {
-          return <div key={index}>{el.name}</div>;
-        })}
-      </div>
+      <div></div>
     </div>
   );
 };

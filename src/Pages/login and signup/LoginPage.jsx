@@ -23,12 +23,14 @@ export default function LoginPage() {
       await axios
         .post("http://localhost:8080/auth/login", loginData)
         .then((data) => {
+          // console.log(data);
           localStorage.setItem("token", data.data.token);
           localStorage.setItem("name", data.data.user.name);
+          localStorage.setItem("email", data.data.user.email);
           dispatch({ type: "loginSuccess", payload: data.data });
         });
     } catch (err) {
-      alert(err.response.data.msg);
+      alert(err);
     }
   };
 
