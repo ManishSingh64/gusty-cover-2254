@@ -4,7 +4,9 @@ import {Box, Button, Flex, Heading, HStack, Image, Input, Text} from "@chakra-ui
 export default function LoginPage() {
   return (
     <HStack  w="100%">
-        <Box w="43%" h="100vh" bgColor="#53dffa" position="sticky" left="0" top="0" bottom="0" right="0">
+        <Box w="43%" h="100vh" bgColor="#53dffa" position="sticky" left="0"
+            top="0" bottom="0" 
+           right="0">
             <HStack mt='50px' justifyContent="space-evenly" alignItems="center"
                 >
                 <Box>
