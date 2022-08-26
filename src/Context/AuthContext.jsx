@@ -1,7 +1,43 @@
-import React from 'react'
+import { Children, createContext, useReducer } from "react";
 
-export const AuthContext = () => {
+export const AuthContext = createContext();
+
+const initialState = {
+  token: "",
+  isLoggedIn: false,
+  isSignuped: false,
+  data: [],
+  name: "",
+};
+
+const reducer = (state, { type, payload }) => {
+  console.log(payload.user.name);
+  switch (type) {
+    case "signupSuccess": {
+      return {
+        ...state,
+        isSignuped: true,
+      };
+    }
+  }
+  switch (type) {
+    case "loginSuccess": {
+      return {
+        ...state,
+        token: payload.token,
+        isLoggedIn: true,
+        name: payload.user.name,
+      };
+    }
+  }
+  return state;
+};
+
+export const AuthContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <div>AuthContext</div>
-  )
-}
+    <AuthContext.Provider value={{ state, dispatch }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
