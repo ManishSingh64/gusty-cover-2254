@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const reducer = (state, { type, payload }) => {
-  console.log(payload.user.name);
+  // console.log(type, payload);
   switch (type) {
     case "signupSuccess": {
       return {
@@ -19,8 +19,7 @@ const reducer = (state, { type, payload }) => {
         isSignuped: true,
       };
     }
-  }
-  switch (type) {
+
     case "loginSuccess": {
       return {
         ...state,
@@ -29,8 +28,16 @@ const reducer = (state, { type, payload }) => {
         name: payload.user.name,
       };
     }
+
+    case "loadUserData": {
+      return {
+        ...state,
+        data: payload,
+      };
+    }
+    default:
+      return state;
   }
-  return state;
 };
 
 export const AuthContextProvider = ({ children }) => {
