@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const getUserData = async (dispatch, token) => {
+export const getUserData = async (dispatch, token, page, limit) => {
   try {
     axios
-      .get("http://localhost:8080/usertasks", {
+      .get(`http://localhost:8080/usertasks?page=${page}&limit=${limit}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
