@@ -7,6 +7,7 @@ const tasks = [
   { name: "new" },
   { name: "Name" },
   { name: "Name1" },
+
   { name: "Create papers" },
   { name: "Invoioce" },
 ];
@@ -73,6 +74,7 @@ export const Crm = () => {
               </button>
             </div>
             <div>{openform && el.form}</div>
+
           </div>
         ))}
         {/* {openform && <Taskform />} */}
