@@ -4,23 +4,24 @@ import { Taskform } from "../../Components/TaskForm/Taskform";
 import crm from "../CRM/Crm.module.css";
 
 const tasks = [
-  { name: "new", form: <Taskform /> },
+  { name: "new" },
   { name: "Name" },
-  { name: "Name" },
+  { name: "Name1" },
   { name: "Create papers" },
   { name: "Invoioce" },
 ];
 
 export const Crm = () => {
-  const [openform, setOpenform] = useState(true);
+  const [openform, setOpenform] = useState(false);
   const handleOnClick = (el, i) => {
-    // console.log("el", el, i);
-  //   tasks.map((item) => {
-      
-  //     if(item.name === el.name){
-  //      console.log(item.name)
-  //     }
-  // })
+    setOpenform(!openform);
+    for (let i = 0; i < tasks.length; i++) {
+      if (tasks[i].name === el.name) {
+        tasks[i].form = <Taskform />;
+      } else {
+        tasks[i].form = null;
+      }
+    }
   };
   return (
     <div className={crm.main}>
@@ -71,9 +72,7 @@ export const Crm = () => {
                 +
               </button>
             </div>
-            <div>
-              {el.form}
-            </div>
+            <div>{openform && el.form}</div>
           </div>
         ))}
         {/* {openform && <Taskform />} */}
