@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
+
     <HStack
       justifyContent="space-around"
       bgColor="white"
@@ -18,6 +19,7 @@ export default function Navbar() {
           <Text fontSize="44px" color="#0ebaba" fontWeight="bold">
             Bitrix
           </Text>
+
         </Box>
         <HStack>
           <Text color="blue" fontSize="44px">
