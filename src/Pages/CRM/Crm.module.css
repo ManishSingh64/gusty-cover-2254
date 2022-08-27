@@ -172,9 +172,6 @@
 }
 
 .addbutton {
-  /* border: 1px solid white; */
-}
-.addbutton {
   color: white;
   font-size: 20px;
 }
@@ -187,11 +184,9 @@
   cursor: pointer;
   transition-duration: 0.5s;
 
-
   /* opacity: 100%; */
 }
 .task:hover .addbutton {
-
   /* background-color: rgb(194, 189, 189); */
   background: rgba(247, 247, 247, 0.5);
   transition-duration: 0.5s;
