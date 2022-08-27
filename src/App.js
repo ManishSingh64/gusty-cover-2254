@@ -6,13 +6,8 @@ import { Crm } from "./Pages/CRM/Crm";
 import TaskApp from "./Components/Tasks/TaskApp";
 import Homepage from "./Pages/HomePage/Landingpage/Homepage";
 
-
 function App() {
   return (
-
-    
-      
-
     <div className="App">
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -21,7 +16,6 @@ function App() {
         <Route path="/crm" element={<Crm />} />
         <Route path="/tasks" element={<TaskApp />} />
       </Routes>
-     
     </div>
   );
 }

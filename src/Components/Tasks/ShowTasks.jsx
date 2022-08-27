@@ -9,16 +9,15 @@ import TableHeader from "./Static/TableHeader";
 
 const ShowTasks = () => {
   const {
-    state: { data },
+    state: { data, pageLimit },
     dispatch,
   } = useContext(AuthContext);
-  const [userData, setuserData] = useState([]);
+  console.log("limit", pageLimit);
   const [showEdit, setShowEdit] = useState("");
   const [updatedText, setUpdatedText] = useState("");
   const [updatedDate, setUpdatedDate] = useState();
   const token = localStorage.getItem("token");
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(3);
   const handleUpdateTask = (el) => {
     let change = { status: !el.status };
     console.log(change);
@@ -27,24 +26,17 @@ const ShowTasks = () => {
 
   const handleDeleteTask = (el) => {
     deleteTask(el, dispatch, token);
+    getUserData(dispatch, token, page, pageLimit);
   };
 
   useEffect(() => {
-    getUserData(dispatch, token, page, limit);
-  }, [page, limit]);
+    getUserData(dispatch, token, page, pageLimit);
+  }, [page, pageLimit]);
 
   const handleEditTask = (el) => {
-    // let change = { name: updatedText };
-    // let change = updatedDate;
-    // if (updatedText) {
-    //   console.log(updatedText);
-    // } else if (updatedDate) {
-    //   console.log(updatedDate);
-    // }
     let change = { name: updatedText, deadline: updatedDate };
-    // console.log(change);
     updateTask(el._id, change, dispatch, token);
-    // setShowEdit("");
+    setShowEdit("");
   };
 
   const border = {
@@ -98,7 +90,6 @@ const ShowTasks = () => {
                       <ShowTime deadline={el.deadline} />
                     </td>
                   )}
-
                   <td>
                     {showEdit == el._id ? (
                       <div>
@@ -126,13 +117,7 @@ const ShowTasks = () => {
           </tbody>
         </table>
         <div>
-          <Pagination
-            page={page}
-            setPage={setPage}
-            data={data}
-            limit={limit}
-            setLimit={setLimit}
-          />
+          <Pagination page={page} setPage={setPage} data={data} />
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Pagination = ({ page, setPage, data, limit, setLimit }) => {
+  const { dispatch } = useContext(AuthContext);
   const border = {
     border: "1px solid black",
   };
@@ -25,7 +27,11 @@ const Pagination = ({ page, setPage, data, limit, setLimit }) => {
       </div>
       <div>
         Limit:
-        <select name="" id="" onChange={(e) => setLimit(e.target.value)}>
+        <select
+          onChange={(e) =>
+            dispatch({ type: "setPageLimit", payload: e.target.value })
+          }
+        >
           <option value="3">3</option>
           <option value="5">5</option>
           <option value="10">10</option>
