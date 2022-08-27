@@ -43,13 +43,22 @@ const AddTask = () => {
     getUserData(dispatch, token);
   }, []);
 
+  const border = {
+    border: "1px solid black",
+  };
+
   return (
     <div>
       <div>
         <h2>Name: {name}</h2>
       </div>
       <form action="" onSubmit={(e) => e.preventDefault()}>
-        <input type="text" name="name" onChange={handleAddTask} />
+        <input
+          type="text"
+          name="name"
+          onChange={handleAddTask}
+          style={border}
+        />
         <input type="date" onChange={handleAddTask} />
         <button onClick={() => handleSubmitTask()}>Add Task</button>
       </form>

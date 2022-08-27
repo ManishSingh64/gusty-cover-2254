@@ -26,17 +26,9 @@ const ShowTasks = () => {
     deleteTask(el, dispatch, token);
   };
 
-  // const handlePageChange = (e) => {
-  //   console.log(e.target.value);
-  //   getUserData(e.target.value, dispatch, token);
-  // };
-
   useEffect(() => {
     getUserData(dispatch, token, page, limit);
   }, [page, limit]);
-  const border = {
-    border: "1px solid black",
-  };
 
   const handleEditTask = (el) => {
     console.log(updatedText);
@@ -44,6 +36,9 @@ const ShowTasks = () => {
     setShowEdit("");
   };
 
+  const border = {
+    border: "1px solid black",
+  };
   return (
     <div>
       <div>
@@ -77,6 +72,7 @@ const ShowTasks = () => {
                           type="text"
                           value={updatedText}
                           onChange={(e) => setUpdatedText(e.target.value)}
+                          style={border}
                         />
                         <button onClick={() => handleEditTask(el)}>Save</button>
                       </div>
