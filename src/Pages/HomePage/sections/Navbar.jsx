@@ -13,6 +13,7 @@ export default function Navbar() {
       top="0"
       h="70px"
       boxShadow="md"
+      zIndex="1"
     >
       <Box display="flex" justifyContent="center" alignItems="center">
         <Box>
@@ -43,10 +44,10 @@ export default function Navbar() {
         <Box>SUPPORT</Box>
       </HStack>
       <HStack gap="10%">
-        <Box>
+        <Button bgColor='blue.400'>
           <Link to="/signup">Signup</Link>
-        </Box>
-        <Button variant="ghost" _hover={{ boxShadow: "md", bgColor: "blue" }}>
+        </Button>
+        <Button variant='ghost' _hover={{bgColor:"blue.400"}} >
           <Link to="/login">LogIn</Link>
         </Button>
       </HStack>

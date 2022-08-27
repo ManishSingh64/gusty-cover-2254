@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { Navigate } from "react-router-dom";
+import { Box, Button, Heading, Input, Text } from "@chakra-ui/react";
 
 const SignupPage = () => {
   const { state, dispatch } = useContext(AuthContext);
@@ -34,32 +35,39 @@ const SignupPage = () => {
     return <Navigate to="/login" />;
   }
   return (
-    <div>
-      <form onSubmit={(e) => handleClick(e)}>
-        <input
+    <Box boxShadow="lg" w='30%' p="2%" m="auto" rounded='md' >
+      <Box >
+        <Heading mt='20px' fontSize="xl">Enter your Name</Heading>
+        <Input
+          w='80%'
           type="text"
           placeholder="name"
           name="name"
           onChange={handleChange}
           required
         />
-        <input
+        <Heading fontSize="xl" mt='20px'>Enter your email</Heading>
+        <Input
+          w='80%'
           type="text"
           placeholder="email"
           name="email"
           onChange={handleChange}
           required
         />
-        <input
+        <Heading mt='20px' fontSize="xl">Enter your password</Heading>
+        <Input
+            w='80%'
           type="text"
           placeholder="password"
           name="password"
           onChange={handleChange}
           required
         />
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
+        <Button  size='lg' bgColor="blue" mt='20px' color="white"
+          onClick={(e) => handleClick(e)}>Sign Up</Button>
+      </Box>
+    </Box>
   );
 };
 
