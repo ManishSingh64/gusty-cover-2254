@@ -1,7 +1,26 @@
 import React from "react";
+import { useState } from "react";
+import { Taskform } from "../../Components/TaskForm/Taskform";
 import crm from "../CRM/Crm.module.css";
 
+const tasks = [
+  { name: "new", form: <Taskform /> },
+  { name: "Name" },
+  { name: "Name" },
+  { name: "Create papers" },
+  { name: "Invoioce" },
+];
+
 export const Crm = () => {
+  const [openform, setOpenform] = useState(true);
+  const handleOnClick = (el, i) => {
+    // console.log("el", el, i);
+    //   tasks.map((item) => {
+    //     if(item.name === el.name){
+    //      console.log(item.name)
+    //     }
+    // })
+  };
   return (
     <div className={crm.main}>
       <div className={crm.topnav}>
@@ -38,7 +57,23 @@ export const Crm = () => {
         </div>
       </div>
       <div className={crm.body}>
-
+        {tasks.map((el, i) => (
+          <div className={crm.task}>
+            <div className={crm.taskheader}>
+              <h3>{el.name}</h3>
+            </div>
+            <div className={crm.ruppee}>
+              <h1>Rs. 0</h1>
+            </div>
+            <div className={crm.addbutton}>
+              <button className={crm.add} onClick={() => handleOnClick(el, i)}>
+                +
+              </button>
+            </div>
+            <div>{el.form}</div>
+          </div>
+        ))}
+        {/* {openform && <Taskform />} */}
       </div>
     </div>
   );

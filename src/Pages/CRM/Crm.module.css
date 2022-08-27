@@ -1,128 +1,192 @@
 .main {
-    background-image: url("https://b24-56b1bj.bitrix24.in/bitrix/templates/bitrix24/themes/light/atmosphere/atmosphere2.jpg");
-    border: 1px solid red;
-    height: 800px;
-    width: 78%;
-    position: absolute;
-    top: 200px;
-    left: 16%;
-  }
-  .topnav {
-    /* border: 1px solid blue; */
-    margin:auto;
-    width:98%;
-    height: 40px;
-    display: flex;
-    align-items: center;
-  }
-  .topnav1 {
-    /* border: 1px solid teal; */
-    background-color: #596a7f;
-    border-radius: 15px;
-    width: 20%;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  .topnav1 p {
-    cursor: pointer;
-    color: white;
-  }
-  .topnav2 p {
-    color: white;
-  }
-  .topnav2 {
-    /* border: 1px solid teal; */
-    background-color: #596a7f;
-    border-radius: 15px;
-    display: flex;
-    justify-content: space-evenly;
-    width: 30%;
-    position: relative;
-    left: 1%;
-  }
-  .topnav2 div {
-    /* border: 1px solid red; */
-    width: 130px;
-  }
-  .topnav2 div:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
-  .topnav2 div:nth-child(3) {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-  
-  .topnav2 div:hover {
-    cursor: pointer;
-    background-color: #9fb7d4;
-    transition-duration: 0.5s;
-  }
-  .topnav3 p {
-    color: white;
-  }
-  .topnav3 {
-    display: flex;
-    justify-content: space-evenly;
-    /* border: 1px solid red; */
-    width: 28%;
-    position: relative;
-    left: 20%;
-  }
-  .topnav3 div {
-    width: 135px;
-  }
-  .extensions {
-    border: 1px solid white;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    cursor: pointer;
-  }
-  .extensions div:nth-child(1) {
-    background-color: #596a7f;
-    /* border: 1px solid red; */
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
-  .extensions div:nth-child(1):hover {
-    background-color: #9fb7d4;
-    transition-duration: 0.5s;
-  }
-  .extensions div:nth-child(2):hover {
-    transition-duration: 0.1s;
-    background-color: #9fb7d4;
-  }
-  .extensions div:nth-child(2) {
-    /* border: 1px solid red; */
-    background-color: #596a7f;
-    width: 50px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-  .extensions div select:hover {
-    background-color: #9fb7d4;
-  }
-  .extensions select {
-    background-color: #596a7f;
-    width: 21px;
-    cursor: pointer;
-    /* background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVfNkdMF5dpDxdEbksQ-hvrRQ-bIAfkjslWw0oAAUN718RdRaZogOjAeozE6dCCKnMwlQ&usqp=CAU'); */
-  }
-  .auto div {
-    background-color: #596a7f;
-    border-radius: 15px;
-  }
-  .auto div:hover {
-    background-color: #9fb7d4;
-    cursor: pointer;
-    transition-duration: 0.5s;
-  }
-  .body{
-      border: 1px solid red;
-      margin-top: 10px;
-      margin: auto;
-      height: 600px;
-      width: 98%
-  }
-  
+  background-image: url("https://b24-56b1bj.bitrix24.in/bitrix/templates/bitrix24/themes/light/atmosphere/atmosphere2.jpg");
+  border: 1px solid red;
+  height: 800px;
+  width: 78%;
+  position: absolute;
+  top: 200px;
+  left: 16%;
+}
+.topnav {
+  /* border: 1px solid blue; */
+  margin: auto;
+  width: 98%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.topnav1 {
+  /* border: 1px solid teal; */
+  background-color: #596a7f;
+  border-radius: 15px;
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.topnav1 p {
+  cursor: pointer;
+  color: white;
+}
+.topnav2 p {
+  color: white;
+}
+.topnav2 {
+  /* border: 1px solid teal; */
+  background-color: #596a7f;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 30%;
+  position: relative;
+  left: 1%;
+}
+.topnav2 div {
+  /* border: 1px solid red; */
+  width: 130px;
+}
+.topnav2 div:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.topnav2 div:nth-child(3) {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.topnav2 div:hover {
+  cursor: pointer;
+  background-color: #9fb7d4;
+  transition-duration: 0.5s;
+}
+.topnav3 p {
+  color: white;
+}
+.topnav3 {
+  display: flex;
+  justify-content: space-evenly;
+  /* border: 1px solid red; */
+  width: 28%;
+  position: relative;
+  left: 20%;
+}
+.topnav3 div {
+  width: 135px;
+}
+.extensions {
+  border: 1px solid white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+.extensions div:nth-child(1) {
+  background-color: #596a7f;
+  /* border: 1px solid red; */
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.extensions div:nth-child(1):hover {
+  background-color: #9fb7d4;
+  transition-duration: 0.5s;
+}
+.extensions div:nth-child(2):hover {
+  transition-duration: 0.1s;
+  background-color: #9fb7d4;
+}
+.extensions div:nth-child(2) {
+  /* border: 1px solid red; */
+  background-color: #596a7f;
+  width: 50px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.extensions div select:hover {
+  background-color: #9fb7d4;
+}
+.extensions select {
+  background-color: #596a7f;
+  width: 21px;
+  cursor: pointer;
+  /* background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVfNkdMF5dpDxdEbksQ-hvrRQ-bIAfkjslWw0oAAUN718RdRaZogOjAeozE6dCCKnMwlQ&usqp=CAU'); */
+}
+.auto div {
+  background-color: #596a7f;
+  border-radius: 15px;
+}
+.auto div:hover {
+  background-color: #9fb7d4;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+.body {
+  border: 1px solid red;
+  margin-top: 10px;
+  margin: auto;
+  height: 600px;
+  width: 98%;
+  display: flex;
+  padding: 5px;
+}
+.task {
+  border: 1px solid white;
+  width: 21%;
+  margin-left: 5px;
+}
+.task h3 {
+  /* background-color: blueviolet; */
+  width: fit-content;
+  position: relative;
+  left: 3%;
+  color: white;
+}
+.taskheader {
+  background-color: blueviolet;
+  width: 93%;
+  height: 32px;
+}
+/* .taskheader:after {
+   content:' ';
+   height: 0;
+  position: absolute;
+  width: 0;
+   left : 350px;
+  right: -199px; 
+  border-width: 16px;
+  border-color: transparent transparent transparent blueviolet;
+  border-style: solid;  */
+/* content: ' ';
+  height: 0;
+  position: absolute;
+  width: 0;
+  left: 18px;
+  border: 10px solid transparent;
+  border-right-color: #DA362A; */
+/* } */
+.ruppee {
+  border: 1px solid white;
+}
+.ruppee h1 {
+  color: white;
+  font-size: 30px;
+  font-weight: 100;
+}
+.addbutton {
+  color: white;
+  font-size: 20px;
+}
+.add:hover {
+  /* border: 1px solid red; */
+  width: 100%;
+  background-color: #00c4fb;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  transition-duration: 0.5s;
+
+  /* opacity: 100%; */
+}
+.task:hover .addbutton {
+  /* background-color: rgb(194, 189, 189); */
+  background: rgba(247, 247, 247, 0.5);
+  transition-duration: 0.5s;
+  /* opacity: 30%; */
+}
