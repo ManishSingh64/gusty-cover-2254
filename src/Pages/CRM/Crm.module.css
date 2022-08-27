@@ -170,24 +170,23 @@
   font-size: 30px;
   font-weight: 100;
 }
-.addbutton{
-  /* border: 1px solid white; */
-}
-.addbutton{
+
+.addbutton {
   color: white;
   font-size: 20px;
 }
-.add:hover{
+.add:hover {
   /* border: 1px solid red; */
-  width:100%;
+  width: 100%;
+
   background-color: #00c4fb;
   transition-duration: 0.5s;
   cursor: pointer;
   transition-duration: 0.5s;
-  
+
   /* opacity: 100%; */
 }
-.task:hover .addbutton{
+.task:hover .addbutton {
   /* background-color: rgb(194, 189, 189); */
   background: rgba(247, 247, 247, 0.5);
   transition-duration: 0.5s;
