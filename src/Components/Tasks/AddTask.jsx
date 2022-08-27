@@ -22,7 +22,6 @@ const AddTask = () => {
   };
 
   const handleSubmitTask = async () => {
-    console.log(taskData);
     try {
       await axios
         .post("http://localhost:8080/usertasks", taskData, {
