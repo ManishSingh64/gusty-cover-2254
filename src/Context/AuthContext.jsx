@@ -8,10 +8,13 @@ const initialState = {
   isSignuped: false,
   data: [],
   name: "",
+  sortName: true,
+  sortDeadline: true,
+  pageLimit: 3,
+  currentPage: 1,
 };
 
 const reducer = (state, { type, payload }) => {
-  // console.log(type, payload);
   switch (type) {
     case "signupSuccess": {
       return {
@@ -34,6 +37,15 @@ const reducer = (state, { type, payload }) => {
         ...state,
         data: payload,
       };
+    }
+    case "changeSortState": {
+      return { ...state, sortName: !state.sortName };
+    }
+    case "changeSortDeadline": {
+      return { ...state, sortDeadline: !state.sortDeadline };
+    }
+    case "setPageLimit": {
+      return { ...state, pageLimit: payload };
     }
     default:
       return state;

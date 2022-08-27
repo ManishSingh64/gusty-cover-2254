@@ -4,7 +4,10 @@ import { AuthContext } from "../../Context/AuthContext";
 import { getUserData } from "./Actions";
 
 const AddTask = () => {
-  const { state, dispatch } = useContext(AuthContext);
+  const {
+    state: { pageLimit, currentPage },
+    dispatch,
+  } = useContext(AuthContext);
   const [userData, setuserData] = useState([]);
   // setuserData(state.data);
   // console.log("state", state.data);
@@ -30,7 +33,7 @@ const AddTask = () => {
           },
         })
         .then(() => {
-          getUserData(dispatch, token);
+          getUserData(dispatch, token, currentPage, pageLimit);
           // dispatch({ type: "loadUserData", payload: data.data.jobs });
         });
     } catch (err) {

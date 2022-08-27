@@ -3,12 +3,24 @@ const { StatusCodes } = require("http-status-codes");
 const { BadRequestError, NotFoundError } = require("../errors");
 
 const getAllJobs = async (req, res) => {
-  const { page = 1, limit = 3 } = req.query;
-  const jobs = await Job.find({ createdBy: req.user.userId })
-    .sort("createdAt")
-    .limit(limit * 1)
-    .skip((page - 1) * limit);
-  res.status(StatusCodes.OK).json({ jobs, count: jobs.length });
+  const { page = 1, limit = 3, type = "name", sort = 1 } = req.query;
+
+  if (type == "name") {
+    const jobs = await Job.find({ createdBy: req.user.userId })
+      .limit(limit * 1)
+      .skip((page - 1) * limit)
+      // .sort(`{${type}: ${Number(sort)}}`);
+      .sort({ name: Number(sort) });
+    res.status(StatusCodes.OK).json({ jobs, count: jobs.length });
+  }
+  if (type == "deadline") {
+    const jobs = await Job.find({ createdBy: req.user.userId })
+      .limit(limit * 1)
+      .skip((page - 1) * limit)
+      // .sort(`{${type}: ${Number(sort)}}`);
+      .sort({ deadline: Number(sort) });
+    res.status(StatusCodes.OK).json({ jobs, count: jobs.length });
+  }
 };
 
 const getJob = async (req, res) => {
