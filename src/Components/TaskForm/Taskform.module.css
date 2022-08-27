@@ -5,41 +5,41 @@
   margin-top: 10px;
   line-height: 39px;
 }
-.formdiv p{
-    /* background-color: purple; */
-    position:relative;
-    left:7px;
-    width:fit-content;
-    color: #a3a9b1;
-    font-size: 12px;
-    font-weight: 400;
+.formdiv p {
+  /* background-color: purple; */
+  position: relative;
+  left: 7px;
+  width: fit-content;
+  color: #a3a9b1;
+  font-size: 12px;
+  font-weight: 400;
 }
 .nameinput {
   border: 1px solid rgb(138, 130, 130);
-  width:94%;
-  height: 38px
+  width: 94%;
+  height: 38px;
 }
 .currencyinput {
-    border: 1px solid rgb(138, 130, 130);
-    width:60%;
-    height: 38px
+  border: 1px solid rgb(138, 130, 130);
+  width: 60%;
+  height: 38px;
 }
 .selectcurrency {
-    border: 1px solid rgb(138, 130, 130);
-    width: 20%;
+  border: 1px solid rgb(138, 130, 130);
+  width: 20%;
 }
 .Contact {
-    border: 1px solid rgb(138, 130, 130);
-    width:94%;
-    height: 38px
+  border: 1px solid rgb(138, 130, 130);
+  width: 94%;
+  height: 38px;
 }
-.save{
-    background-color: #00c4fb;
-    width:60px;
-    height:35px;
-    border-radius: 3px;
+.save {
+  background-color: #00c4fb;
+  width: 60px;
+  height: 35px;
+  border-radius: 3px;
 }
-.cancel{
-    margin-left: 13px ;
-    color: grey;
+.cancel {
+  margin-left: 13px;
+  color: grey;
 }

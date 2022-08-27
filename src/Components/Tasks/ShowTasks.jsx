@@ -15,35 +15,41 @@ const ShowTasks = () => {
   const [userData, setuserData] = useState([]);
   const [showEdit, setShowEdit] = useState("");
   const [updatedText, setUpdatedText] = useState("");
+  const [updatedDate, setUpdatedDate] = useState();
   const token = localStorage.getItem("token");
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(3);
   const handleUpdateTask = (el) => {
-    updateTask(el, dispatch, token);
+    let change = { status: !el.status };
+    console.log(change);
+    updateTask(el._id, change, dispatch, token);
   };
 
   const handleDeleteTask = (el) => {
     deleteTask(el, dispatch, token);
   };
 
-  // const handlePageChange = (e) => {
-  //   console.log(e.target.value);
-  //   getUserData(e.target.value, dispatch, token);
-  // };
-
   useEffect(() => {
     getUserData(dispatch, token, page, limit);
   }, [page, limit]);
+
+  const handleEditTask = (el) => {
+    // let change = { name: updatedText };
+    // let change = updatedDate;
+    // if (updatedText) {
+    //   console.log(updatedText);
+    // } else if (updatedDate) {
+    //   console.log(updatedDate);
+    // }
+    let change = { name: updatedText, deadline: updatedDate };
+    // console.log(change);
+    updateTask(el._id, change, dispatch, token);
+    // setShowEdit("");
+  };
+
   const border = {
     border: "1px solid black",
   };
-
-  const handleEditTask = (el) => {
-    console.log(updatedText);
-    console.log(el._id);
-    setShowEdit("");
-  };
-
   return (
     <div>
       <div>
@@ -55,29 +61,47 @@ const ShowTasks = () => {
               return (
                 <tr key={index} style={border}>
                   <td>{index + 1}</td>
-                  <td style={border}>{el.name}</td>
+                  {showEdit == el._id ? (
+                    <td>
+                      <input
+                        type="text"
+                        value={updatedText}
+                        onChange={(e) => setUpdatedText(e.target.value)}
+                        style={border}
+                      />
+                    </td>
+                  ) : (
+                    <td style={border}>{el.name}</td>
+                  )}
+
                   <td style={border}>
                     <button onClick={() => handleUpdateTask(el)}>
                       Change Status
                     </button>
                   </td>
                   {el.status ? (
-                    <td style={border}></td>
+                    <td style={border}>Completed</td>
                   ) : (
                     <td style={border}>Not-Completed</td>
                   )}
 
-                  <td>
-                    <ShowTime deadline={el.deadline} />
-                  </td>
+                  {showEdit == el._id ? (
+                    <td>
+                      <input
+                        type="date"
+                        onChange={(e) => setUpdatedDate(e.target.valueAsNumber)}
+                        style={border}
+                      />
+                    </td>
+                  ) : (
+                    <td>
+                      <ShowTime deadline={el.deadline} />
+                    </td>
+                  )}
+
                   <td>
                     {showEdit == el._id ? (
                       <div>
-                        <input
-                          type="text"
-                          value={updatedText}
-                          onChange={(e) => setUpdatedText(e.target.value)}
-                        />
                         <button onClick={() => handleEditTask(el)}>Save</button>
                       </div>
                     ) : (
@@ -85,7 +109,12 @@ const ShowTasks = () => {
                         <button onClick={() => handleDeleteTask(el)}>
                           Delete
                         </button>
-                        <button onClick={() => setShowEdit(el._id)}>
+                        <button
+                          onClick={() => {
+                            setShowEdit(el._id);
+                            setUpdatedText(el.name);
+                          }}
+                        >
                           Edit
                         </button>
                       </div>

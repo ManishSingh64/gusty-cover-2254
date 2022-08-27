@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getUserData = async (dispatch, token, page, limit) => {
+export const getUserData = async (dispatch, token, page = 1, limit = 3) => {
   try {
     axios
       .get(`http://localhost:8080/usertasks?page=${page}&limit=${limit}`, {
@@ -30,19 +30,15 @@ export const deleteTask = (el, dispatch, token) => {
   }
 };
 
-export const updateTask = (el, dispatch, token) => {
-  console.log(el.status);
+export const updateTask = (id, change, dispatch, token) => {
+  console.log(change);
   try {
     axios
-      .patch(
-        `http://localhost:8080/usertasks/${el._id}`,
-        { status: !el.status },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      .patch(`http://localhost:8080/usertasks/${id}`, change, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then(() => getUserData(dispatch, token));
   } catch (err) {
     console.log(err);
