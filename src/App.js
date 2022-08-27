@@ -4,7 +4,10 @@ import SignupPage from "./Pages/login and signup/Signup-page";
 import LoginPage from "./Pages/login and signup/LoginPage";
 import { Crm } from "./Pages/CRM/Crm";
 import TaskApp from "./Components/Tasks/TaskApp";
-import Homepage from "./Pages/HomePage/Landingpage/Homepage";
+
+import Homepage from "./Pages/HomePage/Homepage";
+
+
 
 function App() {
   return (
@@ -15,6 +18,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/crm" element={<Crm />} />
         <Route path="/tasks" element={<TaskApp />} />
+        
       </Routes>
     </div>
   );

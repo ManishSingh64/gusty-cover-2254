@@ -24,7 +24,13 @@
     {
       "id": 2,
       "name": "Name",
-      "task": []
+      "task": [
+        {
+          "deal": "Arun",
+          "amount": "100000",
+          "contact": "8777611595"
+        }
+      ]
     },
     {
       "id": 3,
