@@ -1,0 +1,45 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "msg",
+      "task": [
+        {
+          "deal": "swimming",
+          "amount": "56.00",
+          "contact": "Shubham"
+        },
+        {
+          "deal": "React",
+          "amount": "6000.00",
+          "contact": "akshay"
+        },
+        {
+          "deal": "School",
+          "amount": "50.00",
+          "contact": "Tiwary"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Name",
+      "task": []
+    },
+    {
+      "id": 3,
+      "name": "Name1",
+      "task": []
+    },
+    {
+      "id": 4,
+      "name": "Create papers",
+      "task": []
+    },
+    {
+      "id": 5,
+      "name": "Invoioce",
+      "task": []
+    }
+  ]
+}
