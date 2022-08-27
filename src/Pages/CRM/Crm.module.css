@@ -144,6 +144,24 @@
   width: 93%;
   height: 32px;
 }
+/* .taskheader:after {
+   content:' ';
+   height: 0;
+  position: absolute;
+  width: 0;
+   left : 350px;
+  right: -199px; 
+  border-width: 16px;
+  border-color: transparent transparent transparent blueviolet;
+  border-style: solid;  */
+/* content: ' ';
+  height: 0;
+  position: absolute;
+  width: 0;
+  left: 18px;
+  border: 10px solid transparent;
+  border-right-color: #DA362A; */
+/* } */
 .ruppee {
   border: 1px solid white;
 }
@@ -151,6 +169,9 @@
   color: white;
   font-size: 30px;
   font-weight: 100;
+}
+.addbutton {
+  /* border: 1px solid white; */
 }
 .addbutton {
   color: white;
