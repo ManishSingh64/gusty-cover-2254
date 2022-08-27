@@ -8,9 +8,11 @@ import TaskApp from "./Components/Tasks/TaskApp";
 
 
 
+
 function App() {
   return (
-     <div>
+     <div className="App">
+      
     </div>
   );
 }

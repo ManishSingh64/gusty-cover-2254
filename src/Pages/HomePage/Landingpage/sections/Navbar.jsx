@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
-    <HStack justifyContent='space-around' bgColor='white' alignItems='center'
-     position='sticky' top="0" h="70px" boxShadow='md'  >
+    <HStack justifyContent='space-around' alignItems='center'
+     position='sticky' top="0" h="70px" boxShadow='md' overflow='hidden' 
+     bgColor='white' zIndex="1"  >
         <Box display="flex" justifyContent="center" alignItems='center' >
             <Box>
 
