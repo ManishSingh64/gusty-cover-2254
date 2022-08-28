@@ -18,7 +18,7 @@ export default TaskApp;
 
 const Wrapper = styled.div`
   border: 1px solid black;
-  width: 50%;
-  margin: auto;
+  width: 200%;
+  margin-left: -100px;
   height: auto;
 `;

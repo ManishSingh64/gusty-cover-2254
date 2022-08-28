@@ -21,7 +21,7 @@ export const Crm = () => {
     }
   };
   useEffect(()=>{
-    axios.get('http://localhost:8080/tasks').then(r =>{
+    axios.get('http://localhost:8000/tasks').then(r =>{
       setTasks(r.data)
     })
   },[tasks.task])
@@ -30,10 +30,10 @@ export const Crm = () => {
      for(let i =0; i<tasks.length;i++){
       if(tasks[i].id === index){
         // console.log('manish',tasks[i])
-        axios.get(`http://localhost:8080/tasks/${tasks[i].id}`).then(res => {
+        axios.get(`http://localhost:8000/tasks/${tasks[i].id}`).then(res => {
                 let payload = (res.data);
                 payload['task'].push(obj);
-                axios.put(`http://localhost:8080/tasks/${tasks[i].id}`,payload).then(res =>{
+                axios.put(`http://localhost:8000/tasks/${tasks[i].id}`,payload).then(res =>{
                   // console.log(res.data)
                   setOpenform(!openform)
                 })

@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { MdExpandMore, MdOutlineFlashOn } from "react-icons/md";
 import { BsStar } from "react-icons/bs";
 import { IoMdArrowDropdown, IoIosSearch, IoMdSettings } from "react-icons/io";
 import "./home.css";
+import { Crm } from "../../Pages/CRM/Crm";
+import { AuthContext } from "../../Context/AuthContext";
+import TaskApp from "../Tasks/TaskApp";
 export const Home = () => {
+  const {
+    state: { crm ,tasks},
+    dispatch,
+  } = useContext(AuthContext);
+  console.log("crm", crm);
   return (
     <div className="home">
       <div className="middle-container-tab">
@@ -27,14 +35,6 @@ export const Home = () => {
         </ul>
       </div>
       <div className="progress-bar">
-        <div className="progress-bar-title">
-          <p>My Tasks</p>
-          <BsStar />
-        </div>
-        <div className="new-task-btn">
-          <p>New Task</p>
-          <IoMdArrowDropdown />
-        </div>
         <div className="new-task-search">
           <input type="text" placeholder="Filter and Search" />
           <IoIosSearch />
@@ -48,6 +48,8 @@ export const Home = () => {
             <MdOutlineFlashOn />
           </div>
         </div>
+        <div style={{ marginTop: "50px" }}>{crm && <Crm />}</div>
+        <div style={{ marginTop: "50px" ,border:'1px solid red'}}>{tasks && <TaskApp />}</div>
       </div>
     </div>
   );

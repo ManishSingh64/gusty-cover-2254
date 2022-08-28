@@ -5,10 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background: #0b58a6
+  background: #0b58a6
     url("https://b24-6s0vk7.bitrix24.com/bitrix/templates/bitrix24/themes/light/atmosphere/atmosphere2.jpg")
     fixed 0 0 no-repeat !important;
-  background-size: cover; */
+  background-size: cover;
 }
 
 code {

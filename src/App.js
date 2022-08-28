@@ -15,9 +15,10 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/crm" element={<Crm />} />
+        {/* <Route path="/crm" element={<Crm />} /> */}
         <Route path="/tasks" element={<TaskApp />} />
         <Route path="/dashboard" element={<Dashborad />} />
+        {/* <Route path="/dashboard/crm" element={<Crm/>} /> */}
       </Routes>
     </div>
   );

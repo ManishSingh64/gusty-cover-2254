@@ -9,7 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { SearchIcon, TriangleDownIcon } from "@chakra-ui/icons";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import "./navbar.css";
 import {
@@ -30,7 +30,13 @@ import { AiOutlineSearch } from "react-icons/ai";
 //import sidebar css from react-pro-sidebar module and our custom css
 import "react-pro-sidebar/dist/css/styles.css";
 import "./sidebar.css";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
 function NavBar() {
+  const {
+    state: { crm },
+    dispatch,
+  } = useContext(AuthContext);
   const [time, setTime] = useState(
     new Date().toLocaleTimeString([], {
       hour: "2-digit",
@@ -140,6 +146,7 @@ function NavBar() {
               </Button>
             </Stack>
           </Flex>
+
           <div className="right-sidebar">
             <ul>
               {/* <p></p> */}
@@ -161,6 +168,7 @@ function NavBar() {
             </ul>
           </div>
         </Flex>
+
         <div id="header">
           {/* collapsed props to change menu size using menucollapse state */}
           <ProSidebar collapsed={menuCollapse}>
@@ -168,16 +176,14 @@ function NavBar() {
             <SidebarContent>
               <ul className="menu">
                 <li className="active">
-                  <p className="galiya"> Tasks and Projects</p>
+                  <p className="galiya"> Feeds</p>
                 </li>
+                <li onClick={() => dispatch({ type: "setTasks" })}>Tasks</li>
+                <li>Marketing</li>
+                <li>Calender</li>
+                <li>Company</li>
                 <li>Category</li>
-                <li>Category</li>
-                <li>Category</li>
-                <li>
-                  <a href=""></a>
-                </li>
-                <li>Category</li>
-                <li>Category</li>
+                <li onClick={() => dispatch({ type: "setCrm" })}>Crm</li>
               </ul>
             </SidebarContent>
             <SidebarFooter>

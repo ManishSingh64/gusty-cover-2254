@@ -43,6 +43,8 @@
   border-bottom: 3px solid #1058d0;
 }
 .progress-bar {
+  /* border: 1px solid red; */
+  margin-top:20px;
   display: flex;
   align-items: center;
 }
@@ -118,6 +120,7 @@
 .new-task-search > svg {
   width: 20px;
   height: 20px;
+  
   margin-top: 8px;
   color: #a9abad;
 }
