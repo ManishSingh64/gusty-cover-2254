@@ -17,7 +17,10 @@ export const getUserData = async (
         }
       )
       .then((data) =>
-        dispatch({ type: "loadUserData", payload: data.data.jobs })
+        dispatch({
+          type: "loadUserData",
+          payload: { data: data.data.jobs, count: data.data.count },
+        })
       );
   } catch (err) {
     console.log(err);
@@ -78,7 +81,10 @@ export const SortDataAPI = async (
         }
       )
       .then((data) => {
-        dispatch({ type: "loadUserData", payload: data.data.jobs });
+        dispatch({
+          type: "loadUserData",
+          payload: { data: data.data.jobs, count: data.data.count },
+        });
       });
   } catch (err) {
     console.log(err);

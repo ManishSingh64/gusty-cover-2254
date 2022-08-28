@@ -5,13 +5,15 @@ const { BadRequestError, NotFoundError } = require("../errors");
 const getAllJobs = async (req, res) => {
   const { page = 1, limit = 3, type = "name", sort = 1 } = req.query;
 
+  const allJobs = await Job.find();
+
   if (type == "name") {
     const jobs = await Job.find({ createdBy: req.user.userId })
       .limit(limit * 1)
       .skip((page - 1) * limit)
       // .sort(`{${type}: ${Number(sort)}}`);
       .sort({ name: Number(sort) });
-    res.status(StatusCodes.OK).json({ jobs, count: jobs.length });
+    res.status(StatusCodes.OK).json({ jobs, count: allJobs.length });
   }
   if (type == "deadline") {
     const jobs = await Job.find({ createdBy: req.user.userId })

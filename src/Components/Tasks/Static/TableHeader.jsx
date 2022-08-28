@@ -52,6 +52,7 @@ const TableHeader = () => {
             justifyContent: "center",
             alignItems: "center",
             marginTop: "5px",
+            cursor: "pointer",
           }}
           onClick={() => handleSortData()}
         >
@@ -66,6 +67,7 @@ const TableHeader = () => {
             justifyContent: "center",
             alignItems: "center",
             marginTop: "5px",
+            cursor: "pointer",
           }}
           onClick={() => handleSortDeadline()}
         >

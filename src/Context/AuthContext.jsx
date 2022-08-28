@@ -14,6 +14,7 @@ const initialState = {
   sortDeadlineSymbol: true,
   pageLimit: 3,
   currentPage: 1,
+  totalCount: 0,
 };
 
 const reducer = (state, { type, payload }) => {
@@ -37,7 +38,8 @@ const reducer = (state, { type, payload }) => {
     case "loadUserData": {
       return {
         ...state,
-        data: payload,
+        data: payload.data,
+        totalCount: payload.count,
       };
     }
     case "changeSortState": {

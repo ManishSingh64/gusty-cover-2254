@@ -8,9 +8,11 @@ import Pagination from "./Pagination";
 import { ShowTime } from "./Static/DateConverter";
 import TableHeader from "./Static/TableHeader";
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
+import { Button } from "react-bootstrap";
 
 const ShowTasks = () => {
   const {
+    state,
     state: { data, pageLimit, currentPage },
     dispatch,
   } = useContext(AuthContext);
@@ -44,8 +46,9 @@ const ShowTasks = () => {
   return (
     <Wrapper>
       <div className="main-div">
-        <h2>Your Tasks are here</h2>
-        <table style={{ margin: "auto", marginBottom: "1rem", width: "100%" }}>
+        <table
+          style={{ margin: "auto", marginBottom: "0.5rem", width: "100%" }}
+        >
           <TableHeader />
           <tbody>
             {data.map((el, index) => {
@@ -53,7 +56,7 @@ const ShowTasks = () => {
                 <tr key={index} style={border}>
                   <td>{index + 1}</td>
                   {showEdit == el._id ? (
-                    <td>
+                    <td style={border}>
                       <input
                         type="text"
                         value={updatedText}
@@ -64,11 +67,18 @@ const ShowTasks = () => {
                   ) : (
                     <td style={border}>{el.name}</td>
                   )}
-
-                  <td style={border}>
-                    <button onClick={() => handleUpdateTask(el)}>
+                  <td
+                    style={{
+                      border: "1px solid black",
+                      padding: "10px 0px",
+                    }}
+                  >
+                    <Button
+                      className="m-1 mt-1"
+                      onClick={() => handleUpdateTask(el)}
+                    >
                       Change Status
-                    </button>
+                    </Button>
                   </td>
                   {el.status ? (
                     <td style={border}>Completed</td>
@@ -126,14 +136,16 @@ const ShowTasks = () => {
 export default ShowTasks;
 
 const Wrapper = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   .main-div {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    margin-top: 5px;
   }
 `;
 
 const PaginationDiv = styled.div`
-  border: 5px solid black;
+  border: 1px solid black;
+  margin-bottom: 5px;
 `;
 
 const ActionsDiv = styled.div`

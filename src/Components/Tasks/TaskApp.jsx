@@ -17,7 +17,7 @@ const TaskApp = () => {
 export default TaskApp;
 
 const Wrapper = styled.div`
-  border: 2px solid black;
+  border: 1px solid black;
   width: 50%;
   margin: auto;
   height: auto;

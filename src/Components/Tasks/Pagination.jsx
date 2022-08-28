@@ -5,7 +5,7 @@ import { AuthContext } from "../../Context/AuthContext";
 
 const Pagination = ({ page, setPage, data, limit, setLimit }) => {
   const {
-    state: { currentPage },
+    state: { currentPage, totalCount, pageLimit },
   } = useContext(AuthContext);
   const { dispatch } = useContext(AuthContext);
   const border = {
@@ -15,7 +15,9 @@ const Pagination = ({ page, setPage, data, limit, setLimit }) => {
     <Wrapper>
       <ButtonsRow>
         <Button
-          disabled={page <= 1}
+          className="m-1 p-1"
+          variant="secondary"
+          disabled={currentPage <= 1}
           onClick={() =>
             dispatch({ type: "setCurrentPage", payload: currentPage - 1 })
           }
@@ -25,16 +27,18 @@ const Pagination = ({ page, setPage, data, limit, setLimit }) => {
         </Button>
         <div>Page : {currentPage}</div>
         <Button
+          className="m-1 p-1"
+          variant="secondary"
           onClick={() =>
             dispatch({ type: "setCurrentPage", payload: currentPage + 1 })
           }
           style={border}
-          disabled={data.length < limit}
+          disabled={currentPage >= Math.ceil(totalCount / pageLimit)}
         >
           Next
         </Button>
       </ButtonsRow>
-      <div>
+      <SelectDiv>
         Limit:
         <select
           onChange={(e) =>
@@ -45,7 +49,7 @@ const Pagination = ({ page, setPage, data, limit, setLimit }) => {
           <option value="5">5</option>
           <option value="10">10</option>
         </select>
-      </div>
+      </SelectDiv>
     </Wrapper>
   );
 };
@@ -53,7 +57,7 @@ const Pagination = ({ page, setPage, data, limit, setLimit }) => {
 export default Pagination;
 
 const Wrapper = styled.div`
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   justify-content: space-between;
   margin-left: 30px;
@@ -61,6 +65,12 @@ const Wrapper = styled.div`
 `;
 
 const ButtonsRow = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SelectDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
