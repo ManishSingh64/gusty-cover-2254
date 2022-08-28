@@ -12,7 +12,7 @@ const Dashborad = () => {
     return <Navigate to="/" />;
   }
   return (
-    <div style={{ height: "100vh" }} className={Styles.HomeBackGround}>
+    <div style={{ height: "150vh" }} className={Styles.HomeBackGround}>
       <NavBar />
       <Home />
     </div>

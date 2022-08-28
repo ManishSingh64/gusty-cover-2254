@@ -11,7 +11,7 @@ const rateLimiter = require("express-rate-limit");
 
 // ConnecDB
 const connectDB = require("./db/connect");
-const authenticateUser = require("./middleware/Authentication");
+const authenticateUser = require("./middleware/authentication");
 
 // Routers
 const authRouter = require("./routes/auth");

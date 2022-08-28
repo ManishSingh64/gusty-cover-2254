@@ -35,12 +35,24 @@
     {
       "id": 3,
       "name": "Name1",
-      "task": []
+      "task": [
+        {
+          "deal": "school",
+          "amount": "6000",
+          "contact": "manish"
+        }
+      ]
     },
     {
       "id": 4,
       "name": "Create papers",
-      "task": []
+      "task": [
+        {
+          "deal": "study",
+          "amount": "1000",
+          "contact": "sagar"
+        }
+      ]
     },
     {
       "id": 5,
