@@ -9,7 +9,7 @@ export const getUserData = async (
   try {
     axios
       .get(
-        `http://localhost:8080/usertasks?page=${currentPage}&limit=${pageLimit}`,
+        `https://sagar-rct-201.herokuapp.com/usertasks?page=${currentPage}&limit=${pageLimit}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -29,11 +29,14 @@ export const getUserData = async (
 
 export const deleteTask = async (el, dispatch, token) => {
   try {
-    await axios.delete(`http://localhost:8080/usertasks/${el._id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    await axios.delete(
+      `https://sagar-rct-201.herokuapp.com/usertasks/${el._id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
   } catch (err) {
     console.log(err);
   }
@@ -49,7 +52,7 @@ export const updateTask = async (
 ) => {
   try {
     await axios
-      .patch(`http://localhost:8080/usertasks/${id}`, change, {
+      .patch(`https://sagar-rct-201.herokuapp.com/usertasks/${id}`, change, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -73,7 +76,7 @@ export const SortDataAPI = async (
   try {
     await axios
       .get(
-        `http://localhost:8080/usertasks?page=${currentPage}&limit=${pageLimit}&type=${key}&sort=${change}`,
+        `https://sagar-rct-201.herokuapp.com/usertasks?page=${currentPage}&limit=${pageLimit}&type=${key}&sort=${change}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

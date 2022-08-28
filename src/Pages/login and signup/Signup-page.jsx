@@ -22,7 +22,7 @@ const SignupPage = () => {
   const registerUser = async () => {
     try {
       await axios
-        .post("http://localhost:8080/auth/register", tasks)
+        .post("https://sagar-rct-201.herokuapp.com/auth/register", tasks)
         .then((data) => {
           dispatch({ type: "signupSuccess", payload: data.data });
         });

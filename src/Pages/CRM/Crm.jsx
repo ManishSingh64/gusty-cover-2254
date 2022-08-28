@@ -7,9 +7,9 @@ import { TaskContext } from "../../Context/TaskContext";
 import axios from "axios";
 
 export const Crm = () => {
-  const {obj,index} = useContext(TaskContext)
+  const { obj, index } = useContext(TaskContext);
   const [openform, setOpenform] = useState(false);
-  const [tasks,setTasks] = useState([])
+  const [tasks, setTasks] = useState([]);
   const handleOnClick = (el, i) => {
     setOpenform(!openform);
     for (let i = 0; i < tasks.length; i++) {
@@ -20,29 +20,31 @@ export const Crm = () => {
       }
     }
   };
-  useEffect(()=>{
-    axios.get('http://localhost:8000/tasks').then(r =>{
-      setTasks(r.data)
-    })
-  },[tasks.task])
+  useEffect(() => {
+    axios.get("http://localhost:8000/tasks").then((r) => {
+      setTasks(r.data);
+    });
+  }, [tasks.task]);
 
-  useEffect(()=>{
-     for(let i =0; i<tasks.length;i++){
-      if(tasks[i].id === index){
+  useEffect(() => {
+    for (let i = 0; i < tasks.length; i++) {
+      if (tasks[i].id === index) {
         // console.log('manish',tasks[i])
-        axios.get(`http://localhost:8000/tasks/${tasks[i].id}`).then(res => {
-                let payload = (res.data);
-                payload['task'].push(obj);
-                axios.put(`http://localhost:8000/tasks/${tasks[i].id}`,payload).then(res =>{
-                  // console.log(res.data)
-                  setOpenform(!openform)
-                })
-        })
+        axios.get(`http://localhost:8000/tasks/${tasks[i].id}`).then((res) => {
+          let payload = res.data;
+          payload["task"].push(obj);
+          axios
+            .put(`http://localhost:8000/tasks/${tasks[i].id}`, payload)
+            .then((res) => {
+              // console.log(res.data)
+              setOpenform(!openform);
+            });
+        });
         // axios.post(`http://localhost:8080/tasks/${tasks[i].id}`,obj)
-        console.log('obj',obj)
+        console.log("obj", obj);
       }
-     }
-  },[index,obj,tasks])
+    }
+  }, [index, obj, tasks]);
   return (
     <div className={crm.main}>
       <div className={crm.topnav}>

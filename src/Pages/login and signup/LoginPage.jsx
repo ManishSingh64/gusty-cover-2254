@@ -21,7 +21,7 @@ export default function LoginPage() {
   const loginUser = async () => {
     try {
       await axios
-        .post("http://localhost:8080/auth/login", loginData)
+        .post("https://sagar-rct-201.herokuapp.com/auth/login", loginData)
         .then((data) => {
           // console.log(data);
           localStorage.setItem("token", data.data.token);
