@@ -6,8 +6,7 @@ import { Crm } from "./Pages/CRM/Crm";
 import TaskApp from "./Components/Tasks/TaskApp";
 
 import Homepage from "./Pages/HomePage/Homepage";
-
-
+import Dashborad from "./Components/Dashboard/Dashborad";
 
 function App() {
   return (
@@ -18,7 +17,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/crm" element={<Crm />} />
         <Route path="/tasks" element={<TaskApp />} />
-        
+        <Route path="/dashboard" element={<Dashborad />} />
       </Routes>
     </div>
   );

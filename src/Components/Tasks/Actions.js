@@ -1,13 +1,21 @@
 import axios from "axios";
 
-export const getUserData = async (dispatch, token, page = 1, limit = 3) => {
+export const getUserData = async (
+  dispatch,
+  token,
+  currentPage = 1,
+  pageLimit = 3
+) => {
   try {
     axios
-      .get(`http://localhost:8080/usertasks?page=${page}&limit=${limit}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get(
+        `http://localhost:8080/usertasks?page=${currentPage}&limit=${pageLimit}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((data) =>
         dispatch({ type: "loadUserData", payload: data.data.jobs })
       );
@@ -16,9 +24,9 @@ export const getUserData = async (dispatch, token, page = 1, limit = 3) => {
   }
 };
 
-export const deleteTask = (el, dispatch, token) => {
+export const deleteTask = async (el, dispatch, token) => {
   try {
-    axios.delete(`http://localhost:8080/usertasks/${el._id}`, {
+    await axios.delete(`http://localhost:8080/usertasks/${el._id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -28,31 +36,48 @@ export const deleteTask = (el, dispatch, token) => {
   }
 };
 
-export const updateTask = (id, change, dispatch, token) => {
-  console.log(change);
+export const updateTask = async (
+  id,
+  change,
+  dispatch,
+  token,
+  currentPage,
+  pageLimit
+) => {
   try {
-    axios
+    await axios
       .patch(`http://localhost:8080/usertasks/${id}`, change, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(() => getUserData(dispatch, token));
+      .then(() => {
+        getUserData(dispatch, token, currentPage, pageLimit);
+      });
   } catch (err) {
     console.log(err);
   }
 };
 
-export const SortDataAPI = (dispatch, token, key, change) => {
+export const SortDataAPI = async (
+  dispatch,
+  token,
+  currentPage,
+  pageLimit,
+  key,
+  change
+) => {
   try {
-    axios
-      .get(`http://localhost:8080/usertasks?type=${key}&sort=${change}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+    await axios
+      .get(
+        `http://localhost:8080/usertasks?page=${currentPage}&limit=${pageLimit}&type=${key}&sort=${change}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((data) => {
-        console.log(data.data.jobs);
         dispatch({ type: "loadUserData", payload: data.data.jobs });
       });
   } catch (err) {

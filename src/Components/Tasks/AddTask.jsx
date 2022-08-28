@@ -8,10 +8,10 @@ const AddTask = () => {
     state: { pageLimit, currentPage },
     dispatch,
   } = useContext(AuthContext);
-  const [userData, setuserData] = useState([]);
-  // setuserData(state.data);
-  // console.log("state", state.data);
-  const [taskData, setTaskData] = useState();
+  const [taskData, setTaskData] = useState({
+    name: "",
+    deadline: "",
+  });
   const token = localStorage.getItem("token");
   const name = localStorage.getItem("name");
 
@@ -25,6 +25,7 @@ const AddTask = () => {
   };
 
   const handleSubmitTask = async () => {
+    setTaskData({ ...taskData, name: "" });
     try {
       await axios
         .post("http://localhost:8080/usertasks", taskData, {
@@ -34,7 +35,6 @@ const AddTask = () => {
         })
         .then(() => {
           getUserData(dispatch, token, currentPage, pageLimit);
-          // dispatch({ type: "loadUserData", payload: data.data.jobs });
         });
     } catch (err) {
       console.log(err);
@@ -58,6 +58,7 @@ const AddTask = () => {
         <input
           type="text"
           name="name"
+          value={taskData.name}
           onChange={handleAddTask}
           style={border}
         />

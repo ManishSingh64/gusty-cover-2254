@@ -1,41 +1,40 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import styled from "styled-components";
 import { AuthContext } from "../../Context/AuthContext";
 import { deleteTask, getUserData, updateTask } from "./Actions";
 import EditTask from "./EditTask";
 import Pagination from "./Pagination";
 import { ShowTime } from "./Static/DateConverter";
 import TableHeader from "./Static/TableHeader";
+import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 
 const ShowTasks = () => {
   const {
-    state: { data, pageLimit },
+    state: { data, pageLimit, currentPage },
     dispatch,
   } = useContext(AuthContext);
-  console.log("limit", pageLimit);
   const [showEdit, setShowEdit] = useState("");
   const [updatedText, setUpdatedText] = useState("");
   const [updatedDate, setUpdatedDate] = useState();
   const token = localStorage.getItem("token");
-  const [page, setPage] = useState(1);
   const handleUpdateTask = (el) => {
     let change = { status: !el.status };
-    console.log(change);
-    updateTask(el._id, change, dispatch, token);
+    updateTask(el._id, change, dispatch, token, currentPage, pageLimit);
   };
 
   const handleDeleteTask = (el) => {
     deleteTask(el, dispatch, token);
-    getUserData(dispatch, token, page, pageLimit);
+    getUserData(dispatch, token, currentPage, pageLimit);
   };
 
   useEffect(() => {
-    getUserData(dispatch, token, page, pageLimit);
-  }, [page, pageLimit]);
+    getUserData(dispatch, token, currentPage, pageLimit);
+  }, [currentPage, pageLimit]);
 
   const handleEditTask = (el) => {
     let change = { name: updatedText, deadline: updatedDate };
-    updateTask(el._id, change, dispatch, token);
+    updateTask(el._id, change, dispatch, token, currentPage, pageLimit);
     setShowEdit("");
   };
 
@@ -43,10 +42,10 @@ const ShowTasks = () => {
     border: "1px solid black",
   };
   return (
-    <div>
-      <div>
+    <Wrapper>
+      <div className="main-div">
         <h2>Your Tasks are here</h2>
-        <table style={{ margin: "auto", marginBottom: "5rem" }}>
+        <table style={{ margin: "auto", marginBottom: "1rem", width: "100%" }}>
           <TableHeader />
           <tbody>
             {data.map((el, index) => {
@@ -90,15 +89,15 @@ const ShowTasks = () => {
                       <ShowTime deadline={el.deadline} />
                     </td>
                   )}
-                  <td>
+                  <td style={border}>
                     {showEdit == el._id ? (
                       <div>
                         <button onClick={() => handleEditTask(el)}>Save</button>
                       </div>
                     ) : (
-                      <div>
+                      <ActionsDiv>
                         <button onClick={() => handleDeleteTask(el)}>
-                          Delete
+                          <AiOutlineDelete />
                         </button>
                         <button
                           onClick={() => {
@@ -106,9 +105,9 @@ const ShowTasks = () => {
                             setUpdatedText(el.name);
                           }}
                         >
-                          Edit
+                          <AiOutlineEdit />
                         </button>
-                      </div>
+                      </ActionsDiv>
                     )}
                   </td>
                 </tr>
@@ -116,12 +115,30 @@ const ShowTasks = () => {
             })}
           </tbody>
         </table>
-        <div>
-          <Pagination page={page} setPage={setPage} data={data} />
-        </div>
+        <PaginationDiv>
+          <Pagination data={data} />
+        </PaginationDiv>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
 export default ShowTasks;
+
+const Wrapper = styled.div`
+  border: 1px solid red;
+  .main-div {
+    border: 1px solid blue;
+  }
+`;
+
+const PaginationDiv = styled.div`
+  border: 5px solid black;
+`;
+
+const ActionsDiv = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+`;

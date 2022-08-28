@@ -9,7 +9,9 @@ const initialState = {
   data: [],
   name: "",
   sortName: true,
+  sortNameSymbol: true,
   sortDeadline: true,
+  sortDeadlineSymbol: true,
   pageLimit: 3,
   currentPage: 1,
 };
@@ -39,13 +41,26 @@ const reducer = (state, { type, payload }) => {
       };
     }
     case "changeSortState": {
-      return { ...state, sortName: !state.sortName };
+      return {
+        ...state,
+        sortName: !state.sortName,
+        sortNameSymbol: !state.sortNameSymbol,
+        sortDeadlineSymbol: true,
+      };
     }
     case "changeSortDeadline": {
-      return { ...state, sortDeadline: !state.sortDeadline };
+      return {
+        ...state,
+        sortDeadline: !state.sortDeadline,
+        sortDeadlineSymbol: !state.sortDeadlineSymbol,
+        sortNameSymbol: true,
+      };
     }
     case "setPageLimit": {
       return { ...state, pageLimit: payload };
+    }
+    case "setCurrentPage": {
+      return { ...state, currentPage: payload };
     }
     default:
       return state;
