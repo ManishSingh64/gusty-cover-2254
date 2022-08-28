@@ -45,10 +45,6 @@ const AddTask = () => {
     getUserData(dispatch, token);
   }, []);
 
-  const border = {
-    border: "1px solid black",
-  };
-
   return (
     <div>
       <div>
@@ -60,7 +56,6 @@ const AddTask = () => {
           name="name"
           value={taskData.name}
           onChange={handleAddTask}
-          style={border}
         />
         <input type="date" onChange={handleAddTask} />
         <button onClick={() => handleSubmitTask()}>Add Task</button>

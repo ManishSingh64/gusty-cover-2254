@@ -35,37 +35,50 @@ const SignupPage = () => {
     return <Navigate to="/login" />;
   }
   return (
-    <Box boxShadow="lg" w='30%' p="2%" m="auto" rounded='md' >
-      <Box >
-        <Heading mt='20px' fontSize="xl">Enter your Name</Heading>
+    <Box boxShadow="lg" w="30%" p="2%" m="auto" rounded="md">
+      <Box>
+        <Heading mt="20px" fontSize="xl">
+          Enter your Name
+        </Heading>
         <Input
-          w='80%'
+          w="80%"
           type="text"
           placeholder="name"
           name="name"
           onChange={handleChange}
           required
         />
-        <Heading fontSize="xl" mt='20px'>Enter your email</Heading>
+        <Heading fontSize="xl" mt="20px">
+          Enter your email
+        </Heading>
         <Input
-          w='80%'
+          w="80%"
           type="text"
           placeholder="email"
           name="email"
           onChange={handleChange}
           required
         />
-        <Heading mt='20px' fontSize="xl">Enter your password</Heading>
+        <Heading mt="20px" fontSize="xl">
+          Enter your password
+        </Heading>
         <Input
-            w='80%'
+          w="80%"
           type="text"
           placeholder="password"
           name="password"
           onChange={handleChange}
           required
         />
-        <Button  size='lg' bgColor="blue" mt='20px' color="white"
-          onClick={(e) => handleClick(e)}>Sign Up</Button>
+        <Button
+          size="lg"
+          bgColor="blue"
+          mt="20px"
+          color="white"
+          onClick={(e) => handleClick(e)}
+        >
+          Sign Up
+        </Button>
       </Box>
     </Box>
   );

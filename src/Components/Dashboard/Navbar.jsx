@@ -43,6 +43,15 @@ function NavBar() {
       minute: "2-digit",
     })
   );
+  const Name = localStorage.getItem("name");
+  const UpperName = Name.split("")
+    .map((char, index) => {
+      if (index === 0) {
+        return char.toUpperCase();
+      }
+      return char;
+    })
+    .join("");
   const [menuCollapse, setMenuCollapse] = useState(false);
   useEffect(() => {
     let inter = setInterval(() => {
@@ -119,7 +128,7 @@ function NavBar() {
                 _hover={{ opacity: 0.8 }}
                 variant="ghost"
               >
-                Murali naayak
+                {UpperName}
               </Button>
             </Stack>
             {/* <Spacer /> */}
@@ -188,7 +197,12 @@ function NavBar() {
             </SidebarContent>
             <SidebarFooter>
               <Menu iconShape="square">
-                <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
+                <MenuItem
+                  icon={<FiLogOut />}
+                  onClick={() => dispatch({ type: "setLogout" })}
+                >
+                  Logout
+                </MenuItem>
               </Menu>
             </SidebarFooter>
           </ProSidebar>

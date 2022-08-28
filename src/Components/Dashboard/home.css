@@ -4,10 +4,16 @@
   width: 83.6%;
   display: flex;
   flex-direction: column;
+  /* background: #0b58a6
+    url("https://b24-6s0vk7.bitrix24.com/bitrix/templates/bitrix24/themes/light/atmosphere/atmosphere2.jpg")
+    fixed 0 0 no-repeat !important;
+  background-size: cover; */
 }
 
 .middle-container-tab {
-  width: 100%;
+  width: 85%;
+  margin: auto;
+  border-radius: 10px;
   height: 60px;
   background-color: #fff;
 }
@@ -44,7 +50,7 @@
 }
 .progress-bar {
   /* border: 1px solid red; */
-  margin-top:20px;
+  margin-top: 20px;
   display: flex;
   align-items: center;
 }
@@ -120,7 +126,7 @@
 .new-task-search > svg {
   width: 20px;
   height: 20px;
-  
+
   margin-top: 8px;
   color: #a9abad;
 }

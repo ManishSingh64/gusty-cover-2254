@@ -8,10 +8,9 @@ import { AuthContext } from "../../Context/AuthContext";
 import TaskApp from "../Tasks/TaskApp";
 export const Home = () => {
   const {
-    state: { crm ,tasks},
+    state: { crm, tasks },
     dispatch,
   } = useContext(AuthContext);
-  console.log("crm", crm);
   return (
     <div className="home">
       <div className="middle-container-tab">
@@ -40,16 +39,18 @@ export const Home = () => {
           <IoIosSearch />
           <div></div>
         </div>
-        <div className="new-task-icons">
+        {/* <div className="new-task-icons">
           <div>
             <IoMdSettings />
           </div>
           <div>
             <MdOutlineFlashOn />
           </div>
-        </div>
+        </div> */}
         <div style={{ marginTop: "50px" }}>{crm && <Crm />}</div>
-        <div style={{ marginTop: "50px" ,border:'1px solid red'}}>{tasks && <TaskApp />}</div>
+        <div style={{ marginTop: "50px", width: "60%" }}>
+          {tasks && <TaskApp />}
+        </div>
       </div>
     </div>
   );

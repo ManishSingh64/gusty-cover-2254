@@ -21,7 +21,7 @@ const getAllJobs = async (req, res) => {
       .skip((page - 1) * limit)
       // .sort(`{${type}: ${Number(sort)}}`);
       .sort({ deadline: Number(sort) });
-    res.status(StatusCodes.OK).json({ jobs, count: jobs.length });
+    res.status(StatusCodes.OK).json({ jobs, count: allJobs.length });
   }
 };
 

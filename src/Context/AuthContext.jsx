@@ -15,8 +15,8 @@ const initialState = {
   pageLimit: 3,
   currentPage: 1,
   totalCount: 0,
-  crm:false,
-  tasks:false
+  crm: false,
+  tasks: false,
 };
 
 const reducer = (state, { type, payload }) => {
@@ -29,6 +29,7 @@ const reducer = (state, { type, payload }) => {
     }
 
     case "loginSuccess": {
+      localStorage.setItem("setLoggedIn", true);
       return {
         ...state,
         token: payload.token,
@@ -66,11 +67,15 @@ const reducer = (state, { type, payload }) => {
     case "setCurrentPage": {
       return { ...state, currentPage: payload };
     }
-    case 'setCrm':{
-      return{...state,crm:true,tasks:false};
+    case "setCrm": {
+      return { ...state, crm: true, tasks: false };
     }
-    case 'setTasks':{
-      return{...state,tasks:true,crm:false};
+    case "setTasks": {
+      return { ...state, tasks: true, crm: false };
+    }
+    case "setLogout": {
+      localStorage.setItem("setLoggedIn", false);
+      return { ...state, isLoggedIn: false };
     }
     default:
       return state;
