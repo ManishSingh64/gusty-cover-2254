@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# BITRIX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bitrix24 is a workspace to do chats&video calls, online meeting. Task can be created for project.
 
-## Available Scripts
+# BITRIX CLone
 
-In the project directory, you can run:
+This is the clone of BITRIX website which we have done during our Unit 5 construct week at Masai. Its functional clone of the website. 
+## Technologies used
 
-### `npm start`
+- HTML
+- Javascript
+- CSS
+- React
+- Redux
+- Chakra UI
+- Json Server
+- MONGODB
+- NODE JS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Functional things
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- User signup page and login page with form validation and data managed with mongoDB.
+- Home page
+- CRM page with data managed with json server.
+- In CRM we can add tasks with labels.
+- Sorting and Filtering functionality
+- Cart Page with size & quantity updation
+- Checkout page 
+- Payment page with payment confirmation
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Run Locally
 
-### `npm run build`
+Pre-Requisite : 
+VS Code
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone the project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+#   https://github.com/Aaru1996/gusty-cover-2254
+#   run json server on local host on port 8080 for CRM page data.
+#   For other pages datas are on mongoDB.
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Website Flow
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Signup & Login pages by Rovin and Deepanshu
+![](./src//assets/LoginPage.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Homepage, Men & Women pages by Aakarsh
+![](./src//assets/Menpage.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Product pages by Manish Singh
+![](./src//assets/ProductsPage.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Product Details & Cart pages by Saurav
+![](./src//assets/ProductDetailsPage.png)
+![](./src//assets/CartPage.png)
 
-## Learn More
+-  Checkout and Payment pages by Deepanshu
+![](./src//assets/CheckoutPage.png)
+![](./src//assets/PaymentPage.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Authors
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Aakarsh](https://github.com/aakarsh604)
+- [Deepanshu Chug](https://github.com/DeepanshuChugh)
+- [Saurav Samui](https://github.com/sauravsamui)
+- [Manish Singh](https://github.com/ManishSingh64)
+- [Rovin Singh](https://github.com/rovin-singh)
