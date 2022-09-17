@@ -4,7 +4,8 @@ Bitrix24 is a workspace to do chats&video calls, online meeting. Task can be cre
 
 # BITRIX CLone
 
-This is the clone of BITRIX website which we have done during our Unit 5 construct week at Masai. Its functional clone of the website. 
+This is the clone of BITRIX website which we have done during our Unit 5 construct week at Masai. Its functional clone of the website.
+
 ## Technologies used
 
 - HTML
@@ -25,47 +26,41 @@ This is the clone of BITRIX website which we have done during our Unit 5 constru
 - In CRM we can add tasks with labels.
 - Sorting and Filtering functionality
 - Cart Page with size & quantity updation
-- Checkout page 
+- Checkout page
 - Payment page with payment confirmation
-
 
 ## Run Locally
 
-Pre-Requisite : 
+Pre-Requisite :
 VS Code
 
 Clone the project
 
 ```bash
 #   https://github.com/Aaru1996/gusty-cover-2254
-#   run json server on local host on port 8080 for CRM page data.
+#   run json server on local host on port 8000 for CRM page data.
 #   For other pages datas are on mongoDB.
 ```
 
-
 ## Website Flow
 
-- Signup & Login pages by Rovin and Deepanshu
-![](./src//assets/LoginPage.png)
+- Signup page by Arun Yadav
+  ![](./src//assets/SignUP.png)
 
-- Homepage, Men & Women pages by Aakarsh
-![](./src//assets/Menpage.png)
+- Home page by Sagar Gondage
+  ![](./src//assets/HOME.png)
 
-- Product pages by Manish Singh
-![](./src//assets/ProductsPage.png)
+- Task page by Sagar Gondage
+  ![](./src//assets/Tasks.png)
 
-- Product Details & Cart pages by Saurav
-![](./src//assets/ProductDetailsPage.png)
-![](./src//assets/CartPage.png)
+- Crm page by Manish Singh
+  ![](./src//assets/Crm.png)
 
--  Checkout and Payment pages by Deepanshu
-![](./src//assets/CheckoutPage.png)
-![](./src//assets/PaymentPage.png)
+- Dashboard page by Manish Singh
+  ![](./src//assets/Dashboard.png)
 
 ## Authors
 
-- [Aakarsh](https://github.com/aakarsh604)
-- [Deepanshu Chug](https://github.com/DeepanshuChugh)
-- [Saurav Samui](https://github.com/sauravsamui)
 - [Manish Singh](https://github.com/ManishSingh64)
-- [Rovin Singh](https://github.com/rovin-singh)
+- [Sagar Gondage](https://github.com/Sagar-Gondage)
+- [Arun Yadav](https://github.com/Aaru1996)
