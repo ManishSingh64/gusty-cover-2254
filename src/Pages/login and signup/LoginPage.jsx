@@ -21,12 +21,12 @@ export default function LoginPage() {
   const loginUser = async () => {
     try {
       await axios
-        .post("https://sagar-rct-201.herokuapp.com/auth/login", loginData)
+        .post("https://blooming-badlands-21297.herokuapp.com/user/login", loginData)
         .then((data) => {
-          // console.log(data);
+          console.log('login',data);
           localStorage.setItem("token", data.data.token);
-          localStorage.setItem("name", data.data.user.name);
-          localStorage.setItem("email", data.data.user.email);
+          localStorage.setItem("name", data.data.name);
+          localStorage.setItem("email", data.data.email);
           dispatch({ type: "loginSuccess", payload: data.data });
         });
     } catch (err) {

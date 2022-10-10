@@ -34,7 +34,7 @@ const reducer = (state, { type, payload }) => {
         ...state,
         token: payload.token,
         isLoggedIn: true,
-        name: payload.user.name,
+        name: payload.name,
       };
     }
 
